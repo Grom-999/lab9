@@ -54,16 +54,24 @@ $ git push origin master --tags
 
 Создание и аплоад релиза из тэга
 ```sh
+# проверяем версию git релиза
 $ github-release --version
+#выводим информацию о репозиторие
 $ github-release info -u ${GITHUB_USERNAME} -r lab09
+#настраиваем релиз
 $ github-release release \
+# указываем логин 
     --user ${GITHUB_USERNAME} \
+    #название репозитрия 
     --repo lab09 \
+    #версия тэга
     --tag v0.1.0.0 \
+    #имя релиза 
     --name "logger" \
+    #описание релиза 
     --description "my first release"
     
-$ export PACKAGE_OS=`uname -s` PACKAGE_ARCH=`uname -m` 
+$ export PACKAGE_OS=`uname -s` PACKAGE_ARCH=`uname -m` #указываем архитектуру и операционную систему 
 $ export PACKAGE_FILENAME=print-${PACKAGE_OS}-${PACKAGE_ARCH}.tar.gz
 $ github-release upload \
     --user ${GITHUB_USERNAME} \
